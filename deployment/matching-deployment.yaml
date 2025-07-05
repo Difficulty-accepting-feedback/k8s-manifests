@@ -2,18 +2,18 @@ apiVersion: apps/v1
 kind: Deployment
 
 metadata:
-  name: spring-deployment
+  name: matching-deployment
 
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
-      app: spring-app
+      app: matching-app
 
   template:
     metadata:
       labels:
-        app: spring-app
+        app: matching-app
     spec:
       containers:
         - name: matching-server
