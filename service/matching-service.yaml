@@ -1,15 +1,15 @@
 apiVersion: v1
 kind: Service
 
-# 서비스의 기본 정보
+# 서비스의 기본 정보: 매칭 서버에서 사용되는 서비스 
 metadata:
-  name: spring-service
+  name: matching-service
 
 # 서비스의 세부 정보
 spec:
   type: NodePort # 서비스 종류 중 하나
   selector:
-    app: spring-app # 실행되고 있는 파드 중에서, app 에 spring-app 이 적혀있는 파드만을 서비스에 포함 시킴
+    app: matching-app # 실행되고 있는 파드 중에서, app 에 spring-app 이 적혀있는 파드만을 서비스에 포함 시킴
   ports:
     - protocol: TCP # 서비스에 접속하기 위한 프로토콜
       port: 8080 # 쿠버네티스 내부에서 서비스로 접속하기 위한 포트 번호
