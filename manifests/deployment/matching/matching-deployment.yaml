@@ -9,7 +9,6 @@ spec:
   selector:
     matchLabels:
       app: matching-app
-
   template:
     metadata:
       labels:
@@ -21,3 +20,8 @@ spec:
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080 # 명시적 표현
+          envFrom: # 환경 변수 등록
+            - configMapRef:
+                name: spring-config
+            - secretRef:
+                name: spring-secret
