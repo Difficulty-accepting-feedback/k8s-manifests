@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: api-gateway-deployment
+
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: api-gateway-app
+  template:
+    metadata:
+      labels:
+        app: api-gateway-app
+    spec:
+      containers:
+        - name: api-gateway-container
+          image: [Change]
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
