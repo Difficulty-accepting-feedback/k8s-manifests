@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: grow-member-deployment
+
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: grow-member-app
+  template:
+    metadata:
+      labels:
+        app: grow-member-app
+    spec:
+      containers:
+        - name: grow-member-container
+          image: [change]
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
