@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: grow-study-deployment
+
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: grow-study-app
+  template:
+    metadata:
+      labels:
+        app: grow-study-app
+    spec:
+      containers:
+        - name: grow-study-container
+          image: [change]
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8085 # 명시적 설정
