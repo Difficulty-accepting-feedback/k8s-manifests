@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: grow-matching-deployment
+
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: grow-matching-app
+  template:
+    metadata:
+      labels:
+        app: grow-matching-app
+    spec:
+      containers:
+        - name: grow-matching-container
+          image: [change]
+          imagePullPolicy: Always # 항상 외부에서 다운로드해서 사용
+          ports:
+            - containerPort: 8082 # 명시적 설정
